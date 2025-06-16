@@ -1,14 +1,7 @@
 package com.froyo.messages;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.ToString;
-
 import java.io.Serializable;
 
-@AllArgsConstructor
-@Getter
-@ToString
 public enum MessagePairTypeCode implements Serializable {
 
     INFO("I", "INFO"), //
@@ -16,7 +9,28 @@ public enum MessagePairTypeCode implements Serializable {
     WARNING("W", "WARNING"), //
     ERROR("E", "ERROR");
 
-    private String code;
-    private String description;
+    private final String code;
+    private final String description;
+
+    MessagePairTypeCode(String code, String description) {
+        this.code = code;
+        this.description = description;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+    public String toString() {
+        return "MessagePairTypeCode{" +
+                "code='" + code + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 
 }

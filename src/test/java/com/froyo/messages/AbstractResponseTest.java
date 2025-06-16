@@ -1,7 +1,6 @@
 package com.froyo.messages;
 
 import com.froyo.messages.exceptions.ValidationConstraintRemote;
-import lombok.extern.java.Log;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,8 +14,10 @@ import java.util.Set;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
-@Log
 class AbstractResponseTest {
+
+    private static final java.util.logging.Logger LOGGER =
+            java.util.logging.Logger.getLogger(AbstractResponseTest.class.getName());
 
     private Validator validator;
 
@@ -42,7 +43,7 @@ class AbstractResponseTest {
             Set<ConstraintViolation<MessagePair>> violations = validator.validate(v);
 
             violations.forEach(p -> {
-                log.warning(p.toString());
+                LOGGER.warning(p.toString());
             });
 
         });

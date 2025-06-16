@@ -1,8 +1,4 @@
 package com.froyo.messages;
-
-import lombok.extern.java.Log;
-import lombok.extern.log4j.Log4j2;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,8 +13,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@Log
 class MessagePairTest {
+
+    private static final java.util.logging.Logger LOGGER =
+            java.util.logging.Logger.getLogger(MessagePairTest.class.getName());
 
     private Validator validator;
 
@@ -42,7 +40,7 @@ class MessagePairTest {
         Set<ConstraintViolation<MessagePair>> violations = validator.validate(messagePair);
 
         violations.forEach(p -> {
-            log.warning(p.getMessage());
+            LOGGER.warning(p.getMessage());
         });
 
         assertThat(violations.size()).isEqualTo(1);
