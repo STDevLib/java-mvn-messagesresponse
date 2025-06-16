@@ -3,7 +3,6 @@ package com.froyo.messages.codes;
 import com.froyo.messages.MessagePairTypeCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -22,8 +21,8 @@ public enum CurrencyMessageCode implements Serializable {
     CY_1101("CY-1101", "Error when try to save currency", ERROR), //
     CY_1102("CY-1102", "Save currency successfully", SUCCESS);
 
-    private String code;
-    private String description;
-    private MessagePairTypeCode messagePairTypeCode;
+    private final String code;
+    private final String description;
+    private final MessagePairTypeCode messagePairTypeCode;
 
 }
