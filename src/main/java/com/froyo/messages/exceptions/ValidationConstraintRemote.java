@@ -1,12 +1,10 @@
 package com.froyo.messages.exceptions;
-
 import com.froyo.messages.MessagePair;
-import lombok.Getter;
-import lombok.NonNull;
 
 import javax.validation.ConstraintViolation;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 public class ValidationConstraintRemote extends RuntimeException {
@@ -18,7 +16,8 @@ public class ValidationConstraintRemote extends RuntimeException {
         throw new AssertionError();
     }
 
-    public ValidationConstraintRemote(@NonNull List<Set<ConstraintViolation<MessagePair>>> listOfConstraintsFound){
+    public ValidationConstraintRemote(List<Set<ConstraintViolation<MessagePair>>> listOfConstraintsFound){
+        Objects.requireNonNull(listOfConstraintsFound, "listOfConstraintsFound is marked non-null but is null");
         super("Please check the constraints for <<MessagePair>> class");
         this.exceptionMessage = "Please check the constraints for <<MessagePair>> class";
         this.listOfConstraintsFound = Collections.unmodifiableList(listOfConstraintsFound);

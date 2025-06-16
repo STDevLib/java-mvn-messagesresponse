@@ -1,8 +1,5 @@
 package com.froyo.messages;
-
 import com.froyo.messages.exceptions.ValidationConstraintRemote;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -12,15 +9,17 @@ import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@NoArgsConstructor
 public class AbstractResponse implements Serializable {
 
     private static final long serialVersionUID = -2762361600162949130L;
 
     private final List<MessagePair> messagePairList = new ArrayList<>();
 
-    public void addMessagePair(@NonNull final MessagePair messagePair) {
-        //Objects.requireNonNull(messagePair,"Error: messagePair is marked non-null but is null");
+    public AbstractResponse() {
+    }
+
+    public void addMessagePair(final MessagePair messagePair) {
+        Objects.requireNonNull(messagePair, "messagePair is marked non-null but is null");
         messagePairList.add(messagePair);
     }
 
@@ -49,14 +48,16 @@ public class AbstractResponse implements Serializable {
 
     }
 
-    public Boolean has(@NonNull final MessagePairTypeCode messagePairTypeCode) {
-        return messagePairList.stream() //
+    public Boolean has(final MessagePairTypeCode messagePairTypeCode) {
+        Objects.requireNonNull(messagePairTypeCode, "messagePairTypeCode is marked non-null but is null");
+        return messagePairList.stream()
                 .anyMatch(s -> messagePairTypeCode.equals(s.getMessagePairTypeCode()));
     }
 
-    public List<MessagePair> fetchMessagePair(@NonNull final MessagePairTypeCode messagePairTypeCode) {
-        return messagePairList.stream() //
-                .filter(s -> messagePairTypeCode.equals(s.getMessagePairTypeCode())) //
+    public List<MessagePair> fetchMessagePair(final MessagePairTypeCode messagePairTypeCode) {
+        Objects.requireNonNull(messagePairTypeCode, "messagePairTypeCode is marked non-null but is null");
+        return messagePairList.stream()
+                .filter(s -> messagePairTypeCode.equals(s.getMessagePairTypeCode()))
                 .collect(Collectors.toList());
     }
 

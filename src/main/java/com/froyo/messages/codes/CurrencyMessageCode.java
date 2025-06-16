@@ -1,16 +1,12 @@
 package com.froyo.messages.codes;
 
 import com.froyo.messages.MessagePairTypeCode;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 import java.io.Serializable;
 
 import static com.froyo.messages.MessagePairTypeCode.ERROR;
 import static com.froyo.messages.MessagePairTypeCode.SUCCESS;
 
-@AllArgsConstructor
-@Getter
 public enum CurrencyMessageCode implements Serializable {
 
     //1001 General
@@ -24,5 +20,23 @@ public enum CurrencyMessageCode implements Serializable {
     private final String code;
     private final String description;
     private final MessagePairTypeCode messagePairTypeCode;
+
+    CurrencyMessageCode(String code, String description, MessagePairTypeCode messagePairTypeCode) {
+        this.code = code;
+        this.description = description;
+        this.messagePairTypeCode = messagePairTypeCode;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public MessagePairTypeCode getMessagePairTypeCode() {
+        return messagePairTypeCode;
+    }
 
 }

@@ -20,7 +20,6 @@
         <junit-plataform.version>5.7.0-M1</junit-plataform.version>
         <mockito-junit-jupiter.version>3.3.3</mockito-junit-jupiter.version>
 
-        <lombok.version>1.18.12</lombok.version>
         <apache.commons-lang3.version>3.10</apache.commons-lang3.version>
         <hamcrest.version>2.2</hamcrest.version>
         <assertj.version>3.16.1</assertj.version>
@@ -67,12 +66,6 @@
     <dependencies>
 
         <!-- Utility dependencies -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <scope>provided</scope>
-        </dependency>
 
         <!-- Apache Utils -->
         <dependency>
