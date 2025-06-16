@@ -3,7 +3,6 @@ package com.froyo.messages.codes;
 import com.froyo.messages.MessagePairTypeCode;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.ToString;
 
 import java.io.Serializable;
 
@@ -22,8 +21,8 @@ public enum FilesMessageCode implements Serializable {
     FILE_1101("FILE-1101", "Error upload photo", ERROR), //
     FILE_1102("FILE-1102", "Success to save album", SUCCESS);
 
-    private String code;
-    private String description;
-    private MessagePairTypeCode messagePairTypeCode;
+    private final String code;
+    private final String description;
+    private final MessagePairTypeCode messagePairTypeCode;
 
 }

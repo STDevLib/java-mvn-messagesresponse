@@ -1,7 +1,6 @@
 package com.froyo.messages;
 
 import com.froyo.messages.exceptions.ValidationConstraintRemote;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
@@ -14,12 +13,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @NoArgsConstructor
-@Getter
 public class AbstractResponse implements Serializable {
 
     private static final long serialVersionUID = -2762361600162949130L;
 
-    private List<MessagePair> messagePairList = new ArrayList<>();
+    private final List<MessagePair> messagePairList = new ArrayList<>();
 
     public void addMessagePair(@NonNull final MessagePair messagePair) {
         //Objects.requireNonNull(messagePair,"Error: messagePair is marked non-null but is null");
