@@ -22,7 +22,7 @@
 
         <apache.commons-lang3.version>3.10</apache.commons-lang3.version>
         <hamcrest.version>2.2</hamcrest.version>
-        <assertj.version>3.16.1</assertj.version>
+        <assertj.version>3.27.7</assertj.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
 
         <hibernate-validator.version>6.2.0.Final</hibernate-validator.version>
